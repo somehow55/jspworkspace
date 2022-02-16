@@ -9,9 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
+import com.koreait.shoppingmall.domain.Admin;
+
 @Controller
 public class AdminController {
 	
@@ -32,5 +31,16 @@ public class AdminController {
 	public String loginForm() {
 		return "admin/login/loginform";
 	}
+	
+	
+	
+	//로그인 요청 처리
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Admin admin) {
+		
+		logger.info("아이디 {}", admin.getHost_id());
+		return "";
+	}
+	
 	
 }

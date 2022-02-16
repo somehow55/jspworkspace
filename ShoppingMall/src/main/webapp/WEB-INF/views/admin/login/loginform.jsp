@@ -7,6 +7,23 @@
 <meta charset="UTF-8">
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+$(function(){
+	$("input[type='button']").click(function(){
+		logincheck();
+	})
+});
+
+function logincheck(){
+	//서버에 로그인 요청
+	$("form").attr({
+		"action":"/admin/login",
+		"method":"post"
+	});
+	
+	$("form").submit();
+}
+</script>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -53,25 +70,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
-
-<form action="/action_page.php" style="max-width:500px;margin:auto">
+<form style="max-width:500px; margin:auto;">
   <h2>Register Form</h2>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="Username" name="usrnm">
+    <input class="input-field" type="text" placeholder="Username" name="host_id">		<!-- name은 DB의 컬럼명과 동일하게  -->
   </div>
 
-  <div class="input-container">
-    <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="text" placeholder="Email" name="email">
-  </div>
-  
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="psw">
+    <input class="input-field" type="password" placeholder="Password" name="password">
   </div>
 
-  <button type="submit" class="btn">Register</button>
+  <button type="button" class="btn">Login</button>
 </form>
 
 </body>

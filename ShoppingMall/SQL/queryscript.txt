@@ -1,6 +1,17 @@
+-- 데이터베이스
+create database shopping;
+use shopping;
+
+
 -- 관리자 계정 테이블
 create table admin(
 	admin_id int primary key auto_increment,
-	user_id 
+	host_id varchar(20),
+	password varchar(64),  -- 해시값 넣을거라 크게 잡음 (암호화 해서)
+	name varchar(20),
+	email varchar(50)
 ) default character set utf8;
 
+insert into admin(host_id, password, name, email) values('hkjo', '1234', '조하경', 'ssona5074@naver.com');
+
+select * from admin;
